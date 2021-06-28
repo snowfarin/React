@@ -53,4 +53,4 @@ def blogdisp(request, user_id):
     if request.method == 'GET':
         user = User.objects.get(id=user_id)
         blog = [x.blog for x in Blog.objects.all().filter(userid=user)]
-        return JsonResponse({'status': True, 'blog': blog[::-1]})
+        return JsonResponse({'status': True, 'blog': blog})

@@ -48,6 +48,14 @@ function Blog() {
         >
           Upload
         </button>
+        <button
+          onClick={() => {
+            localStorage.removeItem('usertoken');
+            window.location.replace('/');
+          }}
+        >
+          Signout
+        </button>
       </div>
     </div>
   );

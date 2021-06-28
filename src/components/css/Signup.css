@@ -1,0 +1,85 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.signuppack {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('../Media/pexels-bruno-thethe-1910225.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.top-cover {
+  display: flex;
+  flex-direction: column;
+  background: rgba(190, 184, 184, 0.7);
+  padding: 3rem;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.274),
+    0px 0px 50px rgba(255, 255, 255, 0.295);
+  font-size: 2rem;
+  border-radius: 2rem;
+  max-width: 50vh;
+}
+
+input {
+  color: black;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: rgb(196, 196, 176);
+  padding: 1rem 5rem;
+  border-radius: 1rem;
+  border: none;
+}
+
+select {
+  color: black;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: rgb(196, 196, 176);
+}
+
+button {
+  width: 100%;
+  background: rgb(64, 64, 80);
+  color: aliceblue;
+  border: none;
+  border-radius: 7rem;
+  margin-top: 2rem;
+  padding: 1.5rem 10.5rem;
+  cursor: pointer;
+}
+
+button:focus {
+  background: rgb(73, 73, 146);
+}
+
+button:hover {
+  background: rgb(74, 74, 160);
+}
+
+@media screen and (max-width: 550px) {
+  .top-cover {
+    margin: calc(1rem + 1vw);
+    width: calc(50rem + 1vw);
+  }
+} */

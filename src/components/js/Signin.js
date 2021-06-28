@@ -14,6 +14,7 @@ function Login() {
         <div className="form-cover">
           <label for="username">Username</label>
           <input
+            className="signin-input"
             type="username"
             id="username"
             onChange={(e) => {
@@ -22,6 +23,7 @@ function Login() {
           />
           <label for="password">Password</label>
           <input
+            className="signin-input"
             type="password"
             id="password"
             onChange={(e) => {
@@ -29,6 +31,7 @@ function Login() {
             }}
           />
           <button
+            className="signin-button"
             type="submit"
             onClick={() => {
               console.log(username, password);
@@ -51,7 +54,7 @@ function Login() {
           </button>
           <h5>Or</h5>
           <button
-            className="signbutton"
+            className="signin-button"
             type="submit"
             onClick={() => window.location.replace('/signup')}
           >

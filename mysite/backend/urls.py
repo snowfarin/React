@@ -21,5 +21,7 @@ urlpatterns = [
     path('', signin),
     path('signup/', signup),
     path('blogdisp/<str:user_id>', blogdisp), path('upload/', upload),
+    path('delete/', delete),
+    path('update/', update)
 
 ]

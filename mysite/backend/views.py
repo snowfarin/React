@@ -52,5 +52,25 @@ def upload(request):
 def blogdisp(request, user_id):
     if request.method == 'GET':
         user = User.objects.get(id=user_id)
-        blog = [x.blog for x in Blog.objects.all().filter(userid=user)]
+        blog = [(x.blog, x.id) for x in Blog.objects.all().filter(userid=user)]
+        # blogpack = {[x.id, x.blog for x in Blog.objects.all().filter(userid=user)]}
         return JsonResponse({'status': True, 'blog': blog})
+
+
+@csrf_exempt
+def delete(request):
+    if request.method == 'DELETE':
+        data = json.loads(request.body)
+        Blog.objects.get(id=data['id']).delete()
+        return JsonResponse({'status': True})
+
+
+@csrf_exempt
+def update(request):
+    if request.method == 'PUT':
+        data = json.loads(request.body)
+        print(data)
+        blog = Blog.objects.get(id=data['id'])
+        blog.blog = data['blog']
+        blog.save()
+        return JsonResponse({'status': True})

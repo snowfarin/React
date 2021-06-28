@@ -1,4 +1,4 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,7 +15,7 @@ body {
 .signuppack {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,8 @@ body {
   background-position: center;
   background-size: cover;
 }
-.top-cover {
+.topcoversignup {
+  width: 70vw;
   display: flex;
   flex-direction: column;
   background: rgba(190, 184, 184, 0.7);
@@ -36,7 +37,7 @@ body {
   max-width: 50vh;
 }
 
-input {
+.signup-input {
   color: black;
   width: 100%;
   margin-top: 1rem;
@@ -58,7 +59,7 @@ select {
   background: rgb(196, 196, 176);
 }
 
-button {
+.signupbutton {
   width: 100%;
   background: rgb(64, 64, 80);
   color: aliceblue;
@@ -69,17 +70,17 @@ button {
   cursor: pointer;
 }
 
-button:focus {
+.signupbuttonfocus {
   background: rgb(73, 73, 146);
 }
 
-button:hover {
+.signupbutton:hover {
   background: rgb(74, 74, 160);
 }
 
 @media screen and (max-width: 550px) {
-  .top-cover {
+  .topcoversignup {
     margin: calc(1rem + 1vw);
     width: calc(50rem + 1vw);
   }
-} */
+}

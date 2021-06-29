@@ -7,6 +7,23 @@ function Blog() {
   const [newblog, setnewblog] = useState('');
   const [update, setupdate] = useState(false);
   const [deletebtn, setdeletebtn] = useState(false);
+  const [files, setfiles] = useState('');
+  let fileurl = '';
+
+  const upload = () => {
+    const data = new FormData();
+    data.append('files', files, files.name);
+    axios
+      .post(
+        `http://127.0.0.1:8000/upload/${localStorage.getItem('usertoken')}`,
+        data
+      )
+      .then((responce) => {
+        fileurl = 'http://127.0.0.1:8000' + responce.data.fileurl;
+        console.log(fileurl);
+        setfiles(fileurl);
+      });
+  };
   useEffect(() => {
     axios
       .get(
@@ -82,6 +99,19 @@ function Blog() {
         >
           Upload
         </button>
+        <input
+          type="file"
+          name="files"
+          onChange={(e) =>
+            e.target.files[0] !== undefined || null
+              ? setfiles(e.target.files[0])
+              : setfiles(null)
+          }
+        />
+
+        <button type="submit" onClick={upload}>
+          upload file
+        </button>
         <button
           onClick={() => {
             localStorage.removeItem('usertoken');
@@ -90,6 +120,7 @@ function Blog() {
         >
           Signout
         </button>
+        <img src={fileurl} width="500" height="600" />
       </div>
     </div>
   );

@@ -16,12 +16,17 @@ Including another URLconf
 
 from django.urls import path, include
 from .views import *
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', signin),
     path('signup/', signup),
     path('blogdisp/<str:user_id>', blogdisp), path('upload/', upload),
     path('delete/', delete),
-    path('update/', update)
+    path('update/', update),
+    path('upload/<str:user_id>', fileupload)
 
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

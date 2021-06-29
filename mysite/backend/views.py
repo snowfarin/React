@@ -5,6 +5,8 @@ from .models import *
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
+from django.core.files.storage import FileSystemStorage
+
 # Create your views here.
 
 
@@ -74,3 +76,18 @@ def update(request):
         blog.blog = data['blog']
         blog.save()
         return JsonResponse({'status': True})
+
+
+@csrf_exempt
+def fileupload(request, user_id):
+    if request.method == 'POST' and request.FILES['files']:
+        file = request.FILES['files']
+        fs = FileSystemStorage()
+        filename = fs.save(file.name, file)
+        file_url = fs.url(filename)
+        user = User.objects.get(id=user_id)
+        Mediasavedb.objects.create(userid=user, filepath=file_url)
+        users = Mediasavedb.objects.all().filter(userid=user)
+        return JsonResponse({'status': True, 'fileurl': file_url})
+    else:
+        return JsonResponse({'status': 'false'})
